@@ -1,0 +1,34 @@
+<h2>Adding Step...</h2>
+<div class="row">
+  <div class="col-md-2">
+    Description
+  </div>
+  <div class="col-md-3">
+    <textarea type="text" [(ngModel)]="this.recipeStep.description" class="form-control" placeholder="Description"></textarea>
+  </div>
+  <div class="col-md-2">
+    Time in seconds
+  </div>
+  <div class="col-md-3">
+    <input type="number" [(ngModel)]="this.recipeStep.time" class="form-control" placeholder="Duration"/>
+  </div>
+</div>
+<div class="row">
+<hr/>
+<h4>Step Media</h4>
+<div *ngIf="!recipesUi.editingStepContent">
+  <div *ngFor="let recipeStepContent of recipeStep.recipeStepContents">
+    <app-recipe-step-content
+      [recipeStepContent]=recipeStepContent>
+    </app-recipe-step-content>
+    <a class="btn btn-primary" (click)="onDeleteStepContent(recipeStepContent)">Delete</a>
+  </div>
+</div>
+<app-edit-app-recipe-step-content *ngIf="recipesUi.editingStepContent" [recipeStepContent]="currentStepContent"></app-edit-app-recipe-step-content>
+</div>
+<div class="row" *ngIf="!recipesUi.editingStepContent">
+  <div class="col-md-6">
+    <button class="btn btn-primary" (click)="onAddContent()">Add Content</button>
+    <button class="btn btn-success pull-right" (click)="onDone()">Done</button>
+  </div>
+</div>

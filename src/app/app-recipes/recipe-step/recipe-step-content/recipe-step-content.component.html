@@ -1,0 +1,12 @@
+<div class="row center" id="recipeStepContent.id">
+  <div class="col-xs-12">
+    <img
+      *ngIf="recipeStepContent.contentType !== 'video'"
+      [src]="recipeStepContent.url"
+      class="center img-responsive"
+      style="max-height: 50px;">
+    <div *ngIf="recipeStepContent.contentType === 'video'">
+      <a [href]="recipeStepContent.url">Link</a>
+    </div>
+  </div>
+</div>

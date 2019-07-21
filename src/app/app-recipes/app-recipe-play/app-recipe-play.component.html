@@ -1,0 +1,28 @@
+<div class="row" *ngIf="!isFinished">
+  <div class="col-xs-3">
+    <strong>Recipe title:</strong> {{recipe.title}}
+  </div>
+  <div class="col-xs-3">
+  <strong class="btn btn-warning">Current Step:</strong> {{currentStep}}
+  </div>
+  <div class="col-xs-3">
+    <strong>Total Duration:</strong> {{totalTime}}
+  </div>
+  <div class="col-xs-3">
+    <strong>Started on</strong> {{ recipePlay.startedOn | date: 'medium' }}
+  </div>
+</div>
+<div class="row" *ngIf="isFinished">
+  <div class="col-xs-3">
+  <strong>Recipe title:</strong> {{recipe.title}}
+  </div>
+  <div class="col-xs-3">
+  <strong class="btn btn-success">Current Step: Finished </strong>
+  </div>
+  <div class="col-xs-3">
+  <strong>Total Duration:</strong> {{totalTime}}
+  </div>
+  <div class="col-xs-3">
+  <strong>Started on</strong> {{ recipePlay.startedOn | date: 'medium' }}
+  </div>
+</div>

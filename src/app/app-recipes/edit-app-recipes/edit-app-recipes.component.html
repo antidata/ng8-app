@@ -1,0 +1,40 @@
+<h2 *ngIf="editMode">Editing recipe</h2>
+<h2 *ngIf="!editMode">New recipe</h2>
+
+<div class="row">
+  <div class="col-md-2">
+    Title
+  </div>
+  <div class="col-md-3">
+    <input type="text" [(ngModel)]="this.currentRecipe.title" class="form-control" placeholder="recipe title"/>
+  </div>
+  <div class="col-md-7">
+
+  </div>
+
+  <div class="col-md-2">
+    Owner
+  </div>
+  <div class="col-md-3">
+    <input type="text" [(ngModel)]="this.currentRecipe.owner" class="form-control" placeholder="owner's name"/>
+  </div>
+</div>
+<div class="row">
+<hr/>
+<h3>Steps</h3>
+<div class="col-md-6">
+  <div *ngIf="!recipesUi.editingStep">
+    <div *ngFor="let recipeStep of currentRecipe.recipeSteps">
+      <app-recipe-step [recipeStep]="recipeStep"></app-recipe-step>
+      <a class="btn btn-primary" (click)="onDeleteStep(recipeStep)">Delete</a>
+    </div>
+  </div>
+  <app-edit-app-recipe-step *ngIf="recipesUi.editingStep" [recipeStep]="currentStep"></app-edit-app-recipe-step>
+</div>
+</div>
+<div class="row" *ngIf="!recipesUi.editingStep">
+  <div class="col-md-6">
+    <button class="btn btn-primary" (click)="onAddStep()">Add Step</button>
+    <button class="btn btn-success pull-right" (click)="onSaveRecipe()">Save Recipe</button>
+  </div>
+</div>

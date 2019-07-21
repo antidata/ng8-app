@@ -1,0 +1,9 @@
+<div class="center">
+  <h4 class="list-group-item-heading"><strong>ID:</strong> {{recipeStep.id}}</h4>
+  <p class="list-group-item-text"> <strong>Duration</strong> {{ recipeStep.time }} seconds </p>
+    <p class="list-group-item-text"> <strong>Description:</strong> {{ recipeStep.description }}</p>
+  <p class="list-group-item-text"> <strong>Media</strong></p>
+  <app-recipe-step-content
+    *ngFor="let recipeStepContent of recipeStep.recipeStepContents"
+    [recipeStepContent]=recipeStepContent></app-recipe-step-content>
+</div>

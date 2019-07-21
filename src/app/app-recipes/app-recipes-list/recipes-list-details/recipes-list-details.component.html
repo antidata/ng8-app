@@ -1,0 +1,14 @@
+<a style="cursor: pointer;" class="list-group-item clearfix" (click)="expandSteps()">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading"><strong>ID:</strong> {{recipe.id}} - <strong>Title:</strong> {{ recipe.title }}</h4>
+    <p class="list-group-item-text"> Created by {{ recipe.owner }}</p>
+    <p class="list-group-item-text"> Created on {{ recipe.createdOn | date: 'medium' }}</p>
+    <p class="list-group-item-text"> Number of steps: {{ recipe.recipeSteps.length }}</p>
+    <p class="list-group-item-text"> <strong>Steps: </strong></p>
+    <div *ngIf="isExpanded()">
+      <app-recipe-step *ngFor="let recipeStep of recipe.recipeSteps" [recipeStep]="recipeStep"></app-recipe-step>
+    </div>
+    <a class="btn btn-primary" (click)="onEdit()">Edit</a>
+    <a class="btn btn-info" (click)="onStartPlayRecipe(recipe)">Play Recipe</a>
+  </div>
+</a>
